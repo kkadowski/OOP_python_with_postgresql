@@ -35,7 +35,7 @@ db.copy_to('users.csv', 'users', ':' )
 # Test of copy records from file to new table
 db.execute("CREATE TABLE IF NOT EXISTS new_users (id SERIAL PRIMARY KEY, f_name VARCHAR(16), l_name VARCHAR(32))")
 db.commit()
-db.copy_from('users.csv', 'new_users', ':' )
+db.copy_from('userse.csv', 'new_users', ':' )
 rows = db.fetchall("SELECT * FROM new_users")
 for row in rows:
     print(row)

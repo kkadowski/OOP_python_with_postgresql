@@ -77,10 +77,10 @@ class dbConnection:
         curs = self.conn.cursor()
         try:
             curs.execute(query, args)
-        except Exception as exc:
+        except Exception as ex:
             self.conn.rollback()
             curs.close()
-            raise exc
+            raise ex
         return curs
 
     # executing query COUNT, SUM, MIN, ...
@@ -107,7 +107,7 @@ class dbConnection:
                 curs.copy_to(f, table_name, sep)
             except:
                 curs.close()
-                raise
+                raise Exception('Problem with writing to the file '.format(path_file))
             
     # copying records from file to the table
     def copy_from(self, path_file, table_name, sep=','):
@@ -119,4 +119,4 @@ class dbConnection:
                 curs.copy_from(f, table_name, sep)
             except:
                 curs.close()
-                raise
+                raise Exception('Problem with copying from the file {0} to the table {1}'.format(path_file, table_name))
