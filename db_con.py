@@ -34,11 +34,10 @@ class dbConnection:
     def connect(self):
         self.conn = None
         try:
-            self.params = self.db
-            self.conn = psycopg2.connect(host = self.params['host'], 
-                                         database = self.params['database'], 
-                                         user = self.params['user'], 
-                                         password = self.params['password']
+            self.conn = psycopg2.connect(host = self.db['host'], 
+                                         database = self.db['database'], 
+                                         user = self.db['user'], 
+                                         password = self.db['password']
                                          )
         except (Exception, psycopg2.DatabaseError) as err: 
             print(f"Database connection error:  {err}")
