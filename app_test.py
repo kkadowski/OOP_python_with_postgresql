@@ -8,7 +8,7 @@ from db_con import dbConnection
 # Test of reading params from file
 db = dbConnection()
 
-# Test of version od database
+# Test of version of the database
 db.db_version()
 
 # Test of executing CREATE TABLE query
