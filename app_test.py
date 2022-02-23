@@ -2,7 +2,6 @@
 Example of use 
 """
 import os
-import pytest
 from db_con import dbConnection
 
 # Test of reading params from file
