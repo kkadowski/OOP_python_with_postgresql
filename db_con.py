@@ -1,5 +1,5 @@
 """
-    db_con.py - Postgresql connection class:
+    db_con.py - dbConnection class:
     connection params from database.ini file
 """
 
@@ -81,7 +81,7 @@ class dbConnection:
             self.conn.rollback()
             curs.close()
             raise ex
-        return curs
+        return curs   
 
     # executing query COUNT, SUM, MIN, ...
     def fetchone(self, query, args=None):

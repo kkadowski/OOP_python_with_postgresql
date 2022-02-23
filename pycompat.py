@@ -3,7 +3,7 @@
     pgdbconn.pycompat
     ~~~~~~~~~~~~~~~~~
 
-    Helpers for compatibility between Python 2.x and 3.x.
+    Compatibility between Python 2.x and 3.x.
 """
 import sys
 
