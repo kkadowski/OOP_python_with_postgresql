@@ -17,7 +17,7 @@ if PY2:
 
 class dbConnection:
     
-    # reading gonn params
+    # reading connection params
     def __init__(self, filename='database.ini', section='postgresql'):
         self.parser = ConfigParser() 
         self.parser.read(filename)   
@@ -30,7 +30,7 @@ class dbConnection:
         else:
             raise Exception('Section {0} can\'t be found in {1} file.'.format(section, filename))
     
-    # connection to database
+    # connection to my database
     def connect(self):
         self.conn = None
         try:
@@ -42,7 +42,7 @@ class dbConnection:
         except (Exception, psycopg2.DatabaseError) as err: 
             print(f"Database connection error:  {err}")
     
-    # vresion of database
+    # version of database
     def db_version(self):
         try:
             self.connect()
@@ -56,7 +56,7 @@ class dbConnection:
         finally:
             self.close()
     
-    # closing conection
+    # closing the connection
     def close(self):
         if self.conn and not self.conn.closed:
             self.conn.close()
@@ -97,7 +97,7 @@ class dbConnection:
         curs.close()
         return rows
 
-    # copying table to the file 
+    # copying records of the table to the file 
     def copy_to(self, path_file, table_name, sep=','):
         if self.conn is None or self.conn.closed:
             self.connect()
@@ -109,7 +109,7 @@ class dbConnection:
                 curs.close()
                 raise Exception('Problem with writing to the file '.format(path_file))
             
-    # copying records from file to the table
+    # copying records from the file to the table
     def copy_from(self, path_file, table_name, sep=','):
         if self.conn is None or self.conn.closed:
             self.connect()
