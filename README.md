@@ -13,8 +13,8 @@ CREATE DATABASE users;
 
 FILES:
 
-- database.ini - configuration of connection
+- database.ini - connection  conf
 - pycompat.py - compatibility check 
-- db_con.py - file with class dbConnection
+- db_con.py -  dbConnection class file
 - app_test.py - example of use class dbConnection
 
